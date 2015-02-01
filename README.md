@@ -1,0 +1,3 @@
+# Quadbot-Control-using-Leap-Motion-Sensor
+The Quadbot is a 4 wheeled robot equipped with 8 servo motors. These servo motors are controlled using an onboard Arduino Mega. The motion of the Quadbot is controlled by 5 different hand gestures. The gestures were recognized using a Leap Motion Sensor which when interfaced with the Arduino Mega, the Quadbot executes specific action corresponding to each gesture. The Quadbot performs a range of motions: moving forward, backward, left, right and a stretch exercise.
+Leap Motion sensor was programmed in Processing(Leap Motion Library (Java)) which serially communicated with Arduino. 
