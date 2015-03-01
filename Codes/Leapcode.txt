@@ -34,9 +34,10 @@ public void draw() {
     ellipse(handPos.x, handPos.y, 20, 20);
   }
 }
+//Recognize circle gesture
 public void circleGestureRecognized(CircleGesture gesture, String clockwiseness) {
       if (gesture.state() == State.STATE_STOP) {
-        println("//////////////////////////////////////");
+        println("//");
         println("Gesture type: " + gesture.type().toString());
         println("ID: " + gesture.id());
         println("Radius: " + gesture.radius());
@@ -46,7 +47,7 @@ public void circleGestureRecognized(CircleGesture gesture, String clockwiseness)
         println("Turns: " + gesture.progress());
         println("Center: " + leap.vectorToPVector(gesture.center()));
         println("Duration: " + gesture.durationSeconds() + "s");
-        println("//////////////////////////////////////");
+
       if(clockwiseness == "clockwise")
       {
         backgroundColor = 255;
@@ -61,19 +62,19 @@ public void circleGestureRecognized(CircleGesture gesture, String clockwiseness)
       else if (gesture.state() == State.STATE_START) {}
       else if (gesture.state() == State.STATE_UPDATE) {}
   }
-      
+//Recognize Swipe gestures
 public void swipeGestureRecognized(SwipeGesture gesture) {
 if (gesture.state() == State.STATE_STOP) {
       println("//////////////////////////////////////");
-       println("Gesture type: " + gesture.type());
+      println("Gesture type: " + gesture.type());
       println("ID: " + gesture.id());
-    println("Position: " + leap.vectorToPVector(gesture.position()));
-println("Direction: " + gesture.direction());
-println("Duration: " + gesture.durationSeconds() + "s");
-println("Speed: " + gesture.speed());
+      println("Position: " + leap.vectorToPVector(gesture.position()));
+      println("Direction: " + gesture.direction());
+      println("Duration: " + gesture.durationSeconds() + "s");
+      println("Speed: " + gesture.speed());
 
-println("//////////////////////////////////////");
-
+      println("//");
+//Left or Right Swipe? 
 if(gesture.direction().getX() > 0)
 {
   myPort.write(3);
@@ -89,7 +90,7 @@ else
   {
  
     PVector handPos = leap.getPosition(hand);
- println("position hand " + handPos);
+    println("position hand " + handPos);
     if(handPos.y > 200)     {      //myPort.write(2);
     }  
  
@@ -98,18 +99,18 @@ else
 else if (gesture.state() == State.STATE_START) {   }  
 else if (gesture.state() == State.STATE_UPDATE) {   } 
 } 
-
+// Recognize Screen Tap Gesture
 public void screenTapGestureRecognized(ScreenTapGesture gesture) {
 if (gesture.state() == State.STATE_STOP) {
-      println("//////////////////////////////////////");
-       println("Gesture type: " + gesture.type());
+      println("/");
+      println("Gesture type: " + gesture.type());
       println("ID: " + gesture.id());
 //    println("Position: " + leap.vectorToPVector(gesture.position()));
-//println("Direction: " + gesture.direction());
-//println("Duration: " + gesture.durationSeconds() + "s");
-//println("Speed: " + gesture.speed());
+//    println("Direction: " + gesture.direction());
+//    println("Duration: " + gesture.durationSeconds() + "s");
+//    println("Speed: " + gesture.speed());
 myPort.write(5);
-println("//////////////////////////////////////");
+println("//");
 
   for (Hand hand : leap.getHandList())
   {
@@ -121,19 +122,16 @@ println("//////////////////////////////////////");
 else if (gesture.state() == State.STATE_START) {   }  
 else if (gesture.state() == State.STATE_UPDATE) {   } 
 } 
-
+//Recognize Key Tap Gesture
 public void keyTapGestureRecognized(ScreenTapGesture gesture) {
 if (gesture.state() == State.STATE_STOP) {
-      println("//////////////////////////////////////");
-       println("Gesture type: " + gesture.type());
+      println("Gesture type: " + gesture.type());
       println("ID: " + gesture.id());
 //    println("Position: " + leap.vectorToPVector(gesture.position()));
-//println("Direction: " + gesture.direction());
-//println("Duration: " + gesture.durationSeconds() + "s");
-//println("Speed: " + gesture.speed());
+//    println("Direction: " + gesture.direction());
+//    println("Duration: " + gesture.durationSeconds() + "s");
+//    println("Speed: " + gesture.speed());
 myPort.write(6);
-println("//////////////////////////////////////");
-
   
 }
 else if (gesture.state() == State.STATE_START) {   }  

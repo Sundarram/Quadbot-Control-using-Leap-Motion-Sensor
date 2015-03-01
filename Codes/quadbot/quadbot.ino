@@ -1,51 +1,21 @@
 #include <Servo.h> 
 #include "angles.h"
-
 #include "pins.h"
-     
-
 Servo servo[8];
-
 
 int pos = 0; 
 int input=0;
-//void Initialize()
-//{
-//    //Initialization
-//  
-//    KneeBL.write(180);
-//    KneeBR.write(180);
-//    KneeFL.write(180);
-//    KneeFR.write(180);
-////  
-//    HipBL.write(45);
-//    HipBR.write(135);
-//    HipFL.write(135);
-//    HipFR.write(45); 
-//  
-//}
 
 void setup() 
 { 
-//  KneeBL.attach(5);  
-//  KneeBR.attach(7);
-//  KneeFL.attach(11);  
-//  KneeFR.attach(13);
-//  
-//  HipBL.attach(4);  
-//  HipBR.attach(6);
-//  HipFL.attach(10);  
-//  HipFR.attach(12);
-
 
   Serial.begin(9600);
-   Serial.println("Hello world");
-    for(int i=0;i<8;i++)
+       for(int i=0;i<8;i++)               // Initialize Serovos
        servo[i].attach(servo_pin[i]);
        
        stand_up();
 
-  //Initialization
+ //Initialization
 //  Initialize();
   
 } 
@@ -110,17 +80,13 @@ void forward()
     move_servo(7,-1);
     delay(delay_time); 
   }  
-
-  
-// ////////////////////////////////////////
-  
+ 
 }
 
 
 
 void backward()
 {
-  // //////////////////////////////////////
  
   for(int i=0;i<displacement;i++)      // Raise the Left Front and Right Rear legs
   {
@@ -166,7 +132,6 @@ void backward()
     move_servo(7,+1);
     delay(delay_time); 
   }
-// ////////////////////////////////////////
   
 }
 
@@ -174,8 +139,7 @@ void backward()
 
 void step_right()
 {
-  // //////////////////////////////////////
- 
+
  for(int i=0;i<displacement;i++)      // Raise the Left Front and Right Rear legs
   {
     move_servo(0,-1);
@@ -220,18 +184,14 @@ void step_right()
     move_servo(7,-1);
     delay(delay_time); 
   } 
-//////  
-  
-// ////////////////////////////////////////
-  
+ 
 }
 
 
 
 void step_left()
 {
-  // //////////////////////////////////////
- 
+
  for(int i=0;i<displacement;i++)      // Raise the Left Front and Right Rear legs
   {
     move_servo(0,-1);
@@ -276,7 +236,6 @@ void step_left()
     move_servo(7,+1);
     delay(delay_time); 
   }  
-// ////////////////////////////////////////
   
 }
 
@@ -467,18 +426,18 @@ void loop()
   {
    
     stretch();
-   stand_up();
+    stand_up();
     }
   if (input == 2)
   {
     
-    continous_forward();
+     continous_forward();
      stand_up();
   }
   if (input == 3)
   {
     
-    step_left();
+     step_left();
      stand_up();
   }
 
